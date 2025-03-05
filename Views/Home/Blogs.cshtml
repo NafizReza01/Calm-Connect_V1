@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Blogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blogs-container">
+    <h2>Blog Posts</h2>
+    <div class="text-center">
+        <a href="@Url.Action("WriteBlog", "Home")" class="write-blog-btn">Write a Blog</a>
+    </div>
+
+    <div class="blog-list">
+        <!-- Dummy Blog 1 -->
+        <div class="blog-item">
+            <h3>Managing Anxiety Through Mindfulness</h3>
+            <p class="blog-author">Posted by: JaneDoe123</p>
+            <p class="blog-content">
+                Anxiety can often feel like an overwhelming storm, but mindfulness has been a game-changer for me. By focusing on the present moment—whether it’s through deep breathing, a walk in nature, or simply noticing my surroundings—I’ve found a way to quiet the constant chatter in my mind. Studies show that mindfulness can reduce cortisol levels, the stress hormone, by up to 20%. It’s not a cure, but it’s a tool that’s helped me regain control. I started with just five minutes a day, sitting quietly and observing my breath. Over time, it’s become a habit that anchors me, even on the toughest days. If you’re struggling, give it a try—it might surprise you how much power lies in simply being present.
+            </p>
+        </div>
+
+        <!-- Dummy Blog 2 -->
+        <div class="blog-item">
+            <h3>A Journey to Better Sleep</h3>
+            <p class="blog-author">Posted by: Anonymous</p>
+            <p class="blog-content">
+                Sleep used to be my enemy—tossing and turning, haunted by worries that grew louder in the dark. Then I discovered the magic of a bedtime routine. It sounds simple, but it works. I started dimming the lights an hour before bed, swapping my phone for a book, and sipping chamomile tea. Research backs this up: consistent routines signal your brain it’s time to wind down, boosting melatonin production. I also tried a trick from my grandma—writing down my thoughts to “empty” my mind. It’s not perfect every night, but I’ve gone from 3 hours of sleep to a solid 7 most nights. If sleep’s a battle for you, small changes might be the key.
+            </p>
+        </div>
+    </div>
+</div>
+
+

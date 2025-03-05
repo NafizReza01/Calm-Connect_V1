@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Anonymous Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="anonymous-container">
+    <h2 class="text-center">Anonymous Appointment</h2>
+
+    <div class="form-group">
+        <label for="formId">Anonymous Form ID</label>
+        <input type="text" id="formId" name="formId" class="form-control" value="@Guid.NewGuid().ToString().Substring(0, 8)" readonly />
+    </div>
+
+    <form class="anonymous-form">
+        <div class="form-group">
+            <label for="doctorSelect">Select Doctor</label>
+            <select id="doctorSelect" name="doctor" class="form-control" required>
+                <option value="">Choose a doctor</option>
+                <!-- Placeholder options; replace with dynamic data later -->
+                <option value="doctor1">Dr. John Smith</option>
+                <option value="doctor2">Dr. Jane Doe</option>
+                <option value="doctor3">Dr. Emily Brown</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="problemDescription">Describe Your Problem</label>
+            <textarea id="problemDescription" name="problemDescription" class="form-control" rows="8" placeholder="Describe your issue here..." required></textarea>
+        </div>
+
+        <p class="review-message">P.S: The Doctor will not know your Username or Email. The problem and solution will be conducted using the form ID.</p>
+        <div class="text-center">
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </form>
+</div>

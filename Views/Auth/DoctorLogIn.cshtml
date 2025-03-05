@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Doctor Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login-container">
+    <h2 class="text-center">Doctor Login</h2>
+    <div class="login-message">
+        <p>Please enter your credentials to access your doctor dashboard.</p>
+    </div>
+    <form class="login-form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required />
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+

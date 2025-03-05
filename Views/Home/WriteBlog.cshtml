@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Write a Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="write-blog-container">
+    <h2 class="text-center">Write a Blog</h2>
+    <form class="write-blog-form">
+        <div class="checkbox-group">
+            <div class="form-check">
+                <input type="checkbox" id="submitWithUsername" name="submitWithUsername" class="form-check-input" />
+                <label for="submitWithUsername" class="form-check-label">Submit with Username</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="submitAnonymously" name="submitAnonymously" class="form-check-input" />
+                <label for="submitAnonymously" class="form-check-label">Submit Anonymously</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="blogContent">Blog Content</label>
+            <textarea id="blogContent" name="blogContent" class="form-control" rows="10" placeholder="Write your blog here..." required></textarea>
+        </div>
+        <p class="review-message">P.S: It takes about 12 hours to review your blogs. Once it is reviewed it will be posted in the <a href="@Url.Action("Blogs", "Home")">Blogs</a> Page.</p>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Ensure only one checkbox can be selected at a time
+        const usernameCheckbox = document.getElementById('submitWithUsername');
+        const anonymousCheckbox = document.getElementById('submitAnonymously');
+
+        usernameCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                anonymousCheckbox.checked = false;
+            }
+        });
+
+        anonymousCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                usernameCheckbox.checked = false;
+            }
+        });
+    </script>
+}
+
+

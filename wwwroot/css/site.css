@@ -1,0 +1,570 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F0F8FF; /* Alice Blue */
+    color: #333;
+}
+
+.header {
+    background-color: #4169E1; /* Royal Blue */
+    color: white;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+    .header span {
+        flex: 1;
+        text-align: center;
+    }
+
+    .header img {
+        height: 50px;
+        cursor: pointer;
+        margin: 0 20px;
+    }
+
+.login-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+    .login-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+.menu-bar {
+    background-color: #6495ED; /* Cornflower Blue */
+    width: 100%;
+    display: flex;
+}
+
+.menu-item {
+    width: 25%;
+    text-align: center;
+    padding: 15px 0;
+    color: white;
+    cursor: pointer;
+}
+
+    .menu-item:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #87CEEB; /* Sky Blue */
+    width: 100%;
+    z-index: 1;
+    flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-item {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+    .dropdown-item:hover {
+        background-color: #5F9EA0; /* Cadet Blue - darker shade for hover */
+    }
+
+.content {
+    padding: 20px;
+}
+
+    .content img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+    }
+
+    .content p {
+        margin: 20px;
+        line-height: 1.6;
+    }
+
+.home-paragraph {
+    text-align: justify;
+}
+
+/* Simplified fade animations */
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+footer {
+    background-color: #4169E1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+    /* Footer list styling */
+    footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+        footer ul li {
+            margin: 0 15px;
+        }
+
+/*DASHBOARD*/
+.dashboard-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-buttons {
+    display: flex; /* Side-by-side layout */
+    justify-content: center;
+    gap: 40px; /* Space between the two button groups */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column; /* Stack button and options vertically within each group */
+    align-items: center;
+}
+
+.dashboard-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .dashboard-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+.options {
+    margin-top: 10px; /* Space between main button and options */
+    display: flex;
+    flex-direction: column; /* Stack Log In and Sign Up vertically */
+    align-items: center;
+}
+
+.option-btn {
+    background-color: #6495ED; /* Cornflower Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0; /* Vertical spacing between Log In and Sign Up */
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .option-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+        color: white;
+    }
+
+.hidden {
+    display: none;
+}
+
+/* LOG IN FORM */
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-message {
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px; /* Limit form width */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6495ED; /* Cornflower Blue */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .submit-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+/* PATIENT SIGN UP */
+.signup-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.signup-form {
+    width: 100%;
+    max-width: 400px; /* Limit form width, consistent with login */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6495ED; /* Cornflower Blue */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .submit-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+/* DOCTOR SIGN UP */
+.availability-section {
+    margin: 20px 0;
+}
+
+    .availability-section h4 {
+        color: #4169E1; /* Royal Blue */
+        margin-bottom: 15px;
+    }
+
+.availability-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #6495ED; /* Cornflower Blue */
+    border-radius: 5px;
+    background-color: #F0F8FF; /* Alice Blue */
+}
+
+.time-place-container {
+    margin-top: 10px;
+}
+
+.time-place-entry {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-end;
+}
+
+    .time-place-entry .form-group {
+        flex: 1;
+        min-width: 150px; /* Ensure fields don’t get too narrow */
+    }
+
+.add-time-btn, .add-day-btn {
+    background-color: #87CEEB; /* Sky Blue */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+    .add-time-btn:hover, .add-day-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+.remove-time-btn {
+    background-color: #FF6B6B; /* Soft Red */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .remove-time-btn:hover {
+        background-color: #CC5252; /* Darker Red */
+    }
+
+/* BLOG WRITE */
+.write-blog-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+    .write-blog-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+        color: white;
+    }
+
+.write-blog-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.write-blog-form {
+    width: 100%;
+    max-width: 600px; /* Wider than login/signup forms for blog content */
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-label {
+    color: #333;
+}
+
+.review-message {
+    text-align: center;
+    color: #333;
+    margin: 15px 0;
+}
+
+    .review-message a {
+        color: #1E90FF; /* Dodger Blue */
+        text-decoration: none;
+    }
+
+        .review-message a:hover {
+            color: #4682B4; /* Steel Blue */
+            text-decoration: underline;
+        }
+
+.blogs-container {
+    min-height: 80vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-list {
+    width: 100%;
+    max-width: 800px; /* Wider for blog content readability */
+    margin-top: 20px;
+}
+
+.blog-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #6495ED; /* Cornflower Blue */
+    border-radius: 5px;
+    background-color: #F0F8FF; /* Alice Blue */
+}
+
+    .blog-item h3 {
+        color: #1E90FF; /* Dodger Blue */
+        margin-bottom: 10px;
+    }
+
+.blog-author {
+    font-style: italic;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.blog-content {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ANONYMOUS FORM */
+.anonymous-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.anonymous-form {
+    width: 100%;
+    max-width: 500px; /* Slightly wider than login/signup, narrower than blog */
+}
+
+/* Reusing existing styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6495ED; /* Cornflower Blue */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px; /* Limit width for centering */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .submit-btn:hover {
+        background-color: #4682B4; /* Steel Blue */
+    }
+
+.review-message {
+    text-align: center;
+    color: #333;
+    margin: 15px 0;
+}
+
+/* DOCTORS LIST */
+.doctors-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.doctors-list {
+    width: 100%;
+    max-width: 600px; /* Reasonable width for the list */
+}
+
+.doctor-item {
+    display: flex;
+    align-items: baseline; /* Aligns name and degrees vertically */
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #6495ED; /* Cornflower Blue */
+}
+
+.doctor-name {
+    font-size: 24px; /* Larger size for names */
+    color: #1E90FF; /* Dodger Blue */
+    margin-right: 10px;
+}
+
+.doctor-degrees {
+    font-size: 18px; /* Smaller size for degrees */
+    color: #333;
+}

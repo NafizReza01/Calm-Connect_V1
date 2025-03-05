@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Doctor Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="signup-container">
+    <h2 class="text-center">Doctor Sign Up</h2>
+    <form class="signup-form" id="doctorSignUpForm">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="degrees">Degrees</label>
+            <input type="text" id="degrees" name="degrees" class="form-control" placeholder="e.g., MD, PhD" required />
+        </div>
+
+        <div class="availability-section">
+            <h4>Availability</h4>
+            <div id="availabilityEntries">
+                <!-- Initial availability entry -->
+                <div class="availability-entry">
+                    <div class="form-group">
+                        <label for="day0">Day</label>
+                        <select id="day0" name="availability[0].day" class="form-control day-select" required>
+                            <option value="">Select a day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                    <div class="time-place-container hidden">
+                        <div class="time-place-entry">
+                            <div class="form-group">
+                                <label>Time: From</label>
+                                <input type="time" name="availability[0].times[0].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                            </div>
+                            <div class="form-group">
+                                <label>To</label>
+                                <input type="time" name="availability[0].times[0].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                            </div>
+                            <div class="form-group">
+                                <label>Place</label>
+                                <input type="text" name="availability[0].times[0].place" class="form-control" placeholder="e.g., Clinic Name" />
+                            </div>
+                            <button type="button" class="remove-time-btn">Remove Time</button>
+                        </div>
+                        <button type="button" class="add-time-btn">Add Another Time</button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="addDayBtn" class="add-day-btn">Add Another Day</button>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        let dayCounter = 1;
+
+        // Show time/place fields when a day is selected
+        document.querySelectorAll('.day-select').forEach(select => {
+            select.addEventListener('change', function () {
+                const container = this.closest('.availability-entry').querySelector('.time-place-container');
+                if (this.value) {
+                    container.classList.remove('hidden');
+                } else {
+                    container.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add another time slot
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('add-time-btn')) {
+                const entry = e.target.closest('.availability-entry');
+                const index = entry.querySelector('.day-select').name.match(/\d+/)[0];
+                const timeContainer = entry.querySelector('.time-place-container');
+                const timeCount = timeContainer.querySelectorAll('.time-place-entry').length;
+
+                const newTimeEntry = document.createElement('div');
+                newTimeEntry.classList.add('time-place-entry');
+                newTimeEntry.innerHTML = `
+                    <div class="form-group">
+                        <label>Time: From</label>
+                        <input type="time" name="availability[${index}].times[${timeCount}].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <input type="time" name="availability[${index}].times[${timeCount}].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                    </div>
+                    <div class="form-group">
+                        <label>Place</label>
+                        <input type="text" name="availability[${index}].times[${timeCount}].place" class="form-control" placeholder="e.g., Clinic Name" />
+                    </div>
+                    <button type="button" class="remove-time-btn">Remove Time</button>
+                `;
+                timeContainer.insertBefore(newTimeEntry, e.target);
+            }
+        });
+
+        // Remove a time slot
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('remove-time-btn')) {
+                const timeEntry = e.target.closest('.time-place-entry');
+                timeEntry.remove();
+            }
+        });
+
+        // Add another day
+        document.getElementById('addDayBtn').addEventListener('click', function () {
+            const entries = document.getElementById('availabilityEntries');
+            const newEntry = document.createElement('div');
+            newEntry.classList.add('availability-entry');
+            newEntry.innerHTML = `
+                <div class="form-group">
+                    <label for="day${dayCounter}">Day</label>
+                    <select id="day${dayCounter}" name="availability[${dayCounter}].day" class="form-control day-select" required>
+                        <option value="">Select a day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+                <div class="time-place-container hidden">
+                    <div class="time-place-entry">
+                        <div class="form-group">
+                            <label>Time: From</label>
+                            <input type="time" name="availability[${dayCounter}].times[0].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                        </div>
+                        <div class="form-group">
+                            <label>To</label>
+                            <input type="time" name="availability[${dayCounter}].times[0].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                        </div>
+                        <div class="form-group">
+                            <label>Place</label>
+                            <input type="text" name="availability[${dayCounter}].times[0].place" class="form-control" placeholder="e.g., Clinic Name" />
+                        </div>
+                        <button type="button" class="remove-time-btn">Remove Time</button>
+                    </div>
+                    <button type="button" class="add-time-btn">Add Another Time</button>
+                </div>
+            `;
+            entries.appendChild(newEntry);
+
+            // Attach event listener to the new day select
+            newEntry.querySelector('.day-select').addEventListener('change', function () {
+                const container = this.closest('.availability-entry').querySelector('.time-place-container');
+                if (this.value) {
+                    container.classList.remove('hidden');
+                } else {
+                    container.classList.add('hidden');
+                }
+            });
+
+            dayCounter++;
+        });
+    </script>
+}
+
+

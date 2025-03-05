@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-container">
+    <div class="dashboard-buttons">
+        <div class="button-group">
+            <button id="patientBtn" class="dashboard-btn">I Am a Patient</button>
+            <div id="patientOptions" class="options hidden">
+                <a href="@Url.Action("PatientLogIn", "Auth")" class="option-btn">Log In</a>
+                <a href="@Url.Action("PatientSignUp", "Auth")" class="option-btn">Sign Up</a>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="doctorBtn" class="dashboard-btn">I Am a Doctor</button>
+            <div id="doctorOptions" class="options hidden">
+                <a href="@Url.Action("DoctorLogIn", "Auth")" class="option-btn">Log In</a>
+                <a href="@Url.Action("DoctorSignUp", "Auth")" class="option-btn">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('patientBtn').addEventListener('click', function () {
+            const options = document.getElementById('patientOptions');
+            options.classList.toggle('hidden');
+        });
+
+        document.getElementById('doctorBtn').addEventListener('click', function () {
+            const options = document.getElementById('doctorOptions');
+            options.classList.toggle('hidden');
+        });
+    </script>
+}
