@@ -14,6 +14,7 @@ namespace CalmAndConnect.Controllers
             return View();
         }
 
+
         public IActionResult Offline()
         {
             return View();

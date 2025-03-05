@@ -3,5 +3,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Online Appointments</h2>
-<!-- Add online appointment content here -->
+<h2>Book an Online Appointment</h2>
+
+<form method="post" asp-action="OnlineAppointment">
+    <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" name="Name" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="Email" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="date" class="form-label">Preferred Date</label>
+        <input type="date" id="date" name="Date" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="time" class="form-label">Preferred Time</label>
+        <input type="time" id="time" name="Time" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="doctor" class="form-label">Select Doctor</label>
+        <select id="doctor" name="Doctor" class="form-select" required>
+            <option value="">-- Select a Doctor --</option>
+            <option value="doctor1">Dr. John Smith</option>
+            <option value="doctor2">Dr. Jane Doe</option>
+            <option value="doctor3">Dr. Emily Brown</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+</form>
