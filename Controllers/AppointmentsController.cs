@@ -14,11 +14,20 @@ namespace CalmAndConnect.Controllers
             return View();
         }
 
-
         public IActionResult Offline()
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Offline(string name, string date, string location)
+        {
+            // You can process the form data here (e.g., save to a database)
+            ViewData["Message"] = $"Appointment booked for {name} on {date} at {location}.";
+
+            return View();
+        }
     }
 }
+
 

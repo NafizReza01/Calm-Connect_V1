@@ -3,6 +3,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Offline Appointments</h2>
-<!-- Add offline appointment content here -->
+
+<h2>Book an Offline Appointment</h2>
+
+<p>Schedule an in-person consultation with a professional.</p>
+
+<form method="post" action="@Url.Action("Offline", "Appointments")">
+    <div>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required />
+    </div>
+    <div>
+        <label for="location">Preferred Location:</label>
+        <input type="text" id="location" name="location" required />
+    </div>
+    <button type="submit">Book Appointment</button>
+</form>
+
+@if (ViewData["Message"] != null)
+{
+    <p style="color: green;">@ViewData["Message"]</p>
+}
+
+
 
