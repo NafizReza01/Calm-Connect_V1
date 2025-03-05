@@ -38,6 +38,11 @@ namespace CalmAndConnect.Controllers
             return View();
         }
 
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+
 
     }
 }
