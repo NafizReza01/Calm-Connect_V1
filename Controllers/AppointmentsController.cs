@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CalmAndConnect.Controllers
+namespace CalmnConnect.Controllers
 {
     public class AppointmentsController : Controller
     {
@@ -27,7 +27,5 @@ namespace CalmAndConnect.Controllers
 
             return View();
         }
-    }
+    } // Add this closing brace to properly terminate the class
 }
-
-
