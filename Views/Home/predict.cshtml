@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Predict";
+}
+
+<h2>Spam detection model for anonymous form</h2>
+
+
+<div class=" ="row">
+    <div class="col-md-6">
+        <form asp-action="Predict">
+            <div asp-validation-summery="ModelOnly" class="test-danger"></div>
+            <div class="form-group">
+                <textarea asp-formaction="Message" class="form-control"></textarea>
+                <span asp-validation-formaction="Massage" class="text-danger"></span>
+            </div>
+        </form>
+
+        @if(ViewBag.Result!= null)
+        {
+            <h4>Is Spam : @ViewBag.Result.Prediction</h4>
+            <h4>Score : @ViewBag.Result.Score</h4>
+        }
+    </div>" 
+</div>
+
