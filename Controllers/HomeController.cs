@@ -1,4 +1,9 @@
+using CalmnConnect;
 using Microsoft.AspNetCore.Mvc;
+using static CalmnConnect.MLModel;
+using Microsoft.ML;
+using Microsoft.ML.Data;
+
 
 namespace CalmAndConnect.Controllers
 {
@@ -43,6 +48,39 @@ namespace CalmAndConnect.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Predict()
+        {
+            return View();
+        }
+
+        /*[HttpPost]
+        public IActionResult Predict(ModelInput input)
+        {
+            object ConsumeModel = null;
+            ModelOutput result = ConsumeModel.Predict(input);
+            ViewBag.Result = result;
+
+       
+            return View();
+        }
+        */
+
+
+
+        public HomeController()
+        {
+        }
+
+        public object Result
+        {
+            get
+            {
+                return Result1;
+            }
+            set => Result1 = value;
+        }
+        public object Result1 { get; private set; }
 
     }
 }

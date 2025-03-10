@@ -5,6 +5,10 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalmnConnect", "CalmnConnect.csproj", "{220B9B2D-968C-4924-9FAC-AA3E8ED547B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLModel_ConsoleApp1", "..\MLModel_ConsoleApp1\MLModel_ConsoleApp1.csproj", "{7B0A2F81-2D0E-EF79-610D-6265D1764BBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLModel_WebApi1", "..\MLModel_WebApi1\MLModel_WebApi1.csproj", "{FF73FE83-A518-EE6D-0D4B-AFB63F63D1A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{220B9B2D-968C-4924-9FAC-AA3E8ED547B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{220B9B2D-968C-4924-9FAC-AA3E8ED547B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{220B9B2D-968C-4924-9FAC-AA3E8ED547B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B0A2F81-2D0E-EF79-610D-6265D1764BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B0A2F81-2D0E-EF79-610D-6265D1764BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B0A2F81-2D0E-EF79-610D-6265D1764BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B0A2F81-2D0E-EF79-610D-6265D1764BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF73FE83-A518-EE6D-0D4B-AFB63F63D1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF73FE83-A518-EE6D-0D4B-AFB63F63D1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF73FE83-A518-EE6D-0D4B-AFB63F63D1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF73FE83-A518-EE6D-0D4B-AFB63F63D1A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
