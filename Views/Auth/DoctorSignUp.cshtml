@@ -1,26 +1,29 @@
-﻿@{
+﻿@page
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model CalmnConnect.Views.Auth.DoctorSignUpModel
+@{
     ViewData["Title"] = "Doctor Sign Up";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="signup-container">
     <h2 class="text-center">Doctor Sign Up</h2>
-    <form class="signup-form" id="doctorSignUpForm">
+    <form method="post" class="signup-form" id="doctorSignUpForm">
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required />
+            <input type="email" id="email" name="Doctor.Email" class="form-control" required />
         </div>
         <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" class="form-control" required />
+            <input type="text" id="firstName" name="Doctor.FirstName" class="form-control" required />
         </div>
         <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" required />
+            <input type="text" id="lastName" name="Doctor.LastName" class="form-control" required />
         </div>
         <div class="form-group">
             <label for="degrees">Degrees</label>
-            <input type="text" id="degrees" name="degrees" class="form-control" placeholder="e.g., MD, PhD" required />
+            <input type="text" id="degrees" name="Doctor.Degrees" class="form-control" placeholder="e.g., MD, PhD" required />
         </div>
 
         <div class="availability-section">
@@ -30,7 +33,7 @@
                 <div class="availability-entry">
                     <div class="form-group">
                         <label for="day0">Day</label>
-                        <select id="day0" name="availability[0].day" class="form-control day-select" required>
+                        <select id="day0" name="Doctor.Availability[0].Day" class="form-control day-select" required>
                             <option value="">Select a day</option>
                             <option value="Monday">Monday</option>
                             <option value="Tuesday">Tuesday</option>
@@ -45,15 +48,15 @@
                         <div class="time-place-entry">
                             <div class="form-group">
                                 <label>Time: From</label>
-                                <input type="time" name="availability[0].times[0].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                                <input type="time" name="Doctor.Availability[0].Times[0].From" class="form-control" placeholder="e.g., 09:00 AM" />
                             </div>
                             <div class="form-group">
                                 <label>To</label>
-                                <input type="time" name="availability[0].times[0].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                                <input type="time" name="Doctor.Availability[0].Times[0].To" class="form-control" placeholder="e.g., 12:00 PM" />
                             </div>
                             <div class="form-group">
                                 <label>Place</label>
-                                <input type="text" name="availability[0].times[0].place" class="form-control" placeholder="e.g., Clinic Name" />
+                                <input type="text" name="Doctor.Availability[0].Times[0].Place" class="form-control" placeholder="e.g., Clinic Name" />
                             </div>
                             <button type="button" class="remove-time-btn">Remove Time</button>
                         </div>
@@ -97,15 +100,15 @@
                 newTimeEntry.innerHTML = `
                     <div class="form-group">
                         <label>Time: From</label>
-                        <input type="time" name="availability[${index}].times[${timeCount}].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                        <input type="time" name="Doctor.Availability[${index}].Times[${timeCount}].From" class="form-control" placeholder="e.g., 09:00 AM" />
                     </div>
                     <div class="form-group">
                         <label>To</label>
-                        <input type="time" name="availability[${index}].times[${timeCount}].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                        <input type="time" name="Doctor.Availability[${index}].Times[${timeCount}].To" class="form-control" placeholder="e.g., 12:00 PM" />
                     </div>
                     <div class="form-group">
                         <label>Place</label>
-                        <input type="text" name="availability[${index}].times[${timeCount}].place" class="form-control" placeholder="e.g., Clinic Name" />
+                        <input type="text" name="Doctor.Availability[${index}].Times[${timeCount}].Place" class="form-control" placeholder="e.g., Clinic Name" />
                     </div>
                     <button type="button" class="remove-time-btn">Remove Time</button>
                 `;
@@ -129,7 +132,7 @@
             newEntry.innerHTML = `
                 <div class="form-group">
                     <label for="day${dayCounter}">Day</label>
-                    <select id="day${dayCounter}" name="availability[${dayCounter}].day" class="form-control day-select" required>
+                    <select id="day${dayCounter}" name="Doctor.Availability[${dayCounter}].Day" class="form-control day-select" required>
                         <option value="">Select a day</option>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
@@ -144,15 +147,15 @@
                     <div class="time-place-entry">
                         <div class="form-group">
                             <label>Time: From</label>
-                            <input type="time" name="availability[${dayCounter}].times[0].from" class="form-control" placeholder="e.g., 09:00 AM" />
+                            <input type="time" name="Doctor.Availability[${dayCounter}].Times[0].From" class="form-control" placeholder="e.g., 09:00 AM" />
                         </div>
                         <div class="form-group">
                             <label>To</label>
-                            <input type="time" name="availability[${dayCounter}].times[0].to" class="form-control" placeholder="e.g., 12:00 PM" />
+                            <input type="time" name="Doctor.Availability[${dayCounter}].Times[0].To" class="form-control" placeholder="e.g., 12:00 PM" />
                         </div>
                         <div class="form-group">
                             <label>Place</label>
-                            <input type="text" name="availability[${dayCounter}].times[0].place" class="form-control" placeholder="e.g., Clinic Name" />
+                            <input type="text" name="Doctor.Availability[${dayCounter}].Times[0].Place" class="form-control" placeholder="e.g., Clinic Name" />
                         </div>
                         <button type="button" class="remove-time-btn">Remove Time</button>
                     </div>
@@ -175,5 +178,3 @@
         });
     </script>
 }
-
-

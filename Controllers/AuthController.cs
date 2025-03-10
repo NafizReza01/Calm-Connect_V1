@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CalmnConnect.Data;
+using CalmnConnect.Views.Auth;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CalmAndConnect.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public AuthController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult PatientLogIn()
         {
             return View();
@@ -11,7 +20,8 @@ namespace CalmAndConnect.Controllers
 
         public IActionResult PatientSignUp()
         {
-            return View();
+            var model = new PatientSignUpModel(_context);
+            return View(model);
         }
 
         public IActionResult DoctorLogIn()
@@ -21,7 +31,8 @@ namespace CalmAndConnect.Controllers
 
         public IActionResult DoctorSignUp()
         {
-            return View();
+            var model = new DoctorSignUpModel(_context); // Pass the context to the model
+            return View(model); // Pass the model to the view
         }
     }
 }
